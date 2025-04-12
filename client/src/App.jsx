@@ -9,8 +9,10 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import EmployerDashboard from './pages/EmployerDashboard';
 import ApplicantDashboard from './pages/ApplicantDashboard';
+import InternshipApplications from './components/employers/InternshipApplications';
 import CreatePosting from './components/employers/CreatePosting';
 import Dashboard from './components/employers/Dashboard';
+import CreateInternship from './components/employers/CreateInternship';
 import Applications from './components/employers/Applications';
 import InternshipList from './components/applicants/InternshipList';
 import InternshipDetails from './components/applicants/InternshipDetails';
@@ -31,6 +33,8 @@ const App = () => {
           <Route path="/employer/create-posting" element={<CreatePosting />} />
           <Route path="/employer/dashboard/postings" element={<Dashboard />} />
           <Route path="/employer/dashboard/applications" element={<Applications />} />
+          <Route path="/employer/create-internship" element={<CreateInternship />} />
+          <Route path="/employer/applications/:id" element={<InternshipApplications />} />
           <Route path="/internships" element={<InternshipList />} />
           <Route path="/internships/:id" element={<InternshipDetails />} />
           <Route path="/apply/:id" element={<ApplicationForm />} />
