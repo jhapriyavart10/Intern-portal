@@ -1,0 +1,563 @@
+:root {
+    /* Color palette */
+    --primary: #3498db;
+    --primary-dark: #2980b9;
+    --secondary: #2ecc71;
+    --accent: #f39c12;
+    --text: #2c3e50;
+    --text-light: #7f8c8d;
+    --bg-light: #f9f9f9;
+    --bg-white: #ffffff;
+    --border: #e0e0e0;
+    --error: #e74c3c;
+    --shadow: rgba(0, 0, 0, 0.1);
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--text);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+  }
+  
+  /* Layout */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+ /* Add these styles for the new navbar */
+
+/* Navbar Styling */
+nav {
+    background-color: var(--primary-dark);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav .logo {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  
+  nav .logo:hover {
+    opacity: 0.9;
+  }
+  
+  nav .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  nav .nav-links a {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  
+  nav .nav-links a:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  nav .nav-links a.active {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .btn-outline:hover {
+    background-color: white;
+    color: var(--primary-dark);
+  }
+  
+  @media (max-width: 768px) {
+    nav .container {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    nav .nav-links {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+  
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    transition: background-color 0.2s, transform 0.1s;
+  }
+  
+  .btn:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  .btn:active {
+    transform: translateY(1px);
+  }
+  
+  .btn-secondary {
+    background-color: var(--secondary);
+  }
+  
+  .btn-secondary:hover {
+    background-color: #27ae60;
+  }
+  
+  .btn-accent {
+    background-color: var(--accent);
+  }
+  
+  .btn-accent:hover {
+    background-color: #e67e22;
+  }
+  
+  /* Forms */
+  form {
+    background-color: var(--bg-white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px var(--shadow);
+    max-width: 500px;
+    margin: 2rem auto;
+  }
+  
+  form h2 {
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  
+  form input,
+  form textarea,
+  form select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+  }
+  
+  form input:focus,
+  form textarea:focus,
+  form select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  }
+  
+  .error {
+    color: var(--error);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+  }
+  
+  /* Internship cards */
+  .internship-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+  }
+  
+  .internship-card {
+    background-color: var(--bg-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .internship-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .internship-card h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+  }
+  
+  .internship-card .company {
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  
+  .internship-card .details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .internship-card .details span {
+    background-color: var(--bg-light);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+  }
+  
+  .internship-card .date {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+  }
+  
+  .internship-card .actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .internship-card .actions a {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    transition: background-color 0.2s;
+    border-radius: 4px;
+  }
+  
+  .internship-card .actions a:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+  }
+  
+  /* Footer */
+  footer {
+    background-color: var(--bg-white);
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+  
+  footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  footer p {
+    color: var(--text-light);
+  }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+    .internship-list {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    nav .container {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    form {
+      padding: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .internship-list {
+      grid-template-columns: 1fr;
+    }
+    
+    .btn {
+      width: 100%;
+    }
+    
+    nav .nav-links {
+      flex-direction: column;
+      text-align: center;
+      gap: 0.75rem;
+    }
+  }
+  
+  /* Page sections */
+  .page-header {
+    background-color: var(--primary);
+    color: white;
+    padding: 3rem 0;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .section {
+    padding: 2rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary);
+  }
+
+  /* Add these styles at the end of your file */
+
+/* General Layout Improvements */
+body {
+    padding-bottom: 60px; /* Space for footer */
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  /* Enhanced Navigation */
+  nav {
+    background-color: var(--primary-dark);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav .logo {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+  }
+  
+  nav .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  nav .nav-links a {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  
+  nav .nav-links a:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  nav .nav-links a.active {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  /* Home Page Hero */
+  .hero {
+    background: linear-gradient(to right, var(--primary-dark), var(--primary));
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .hero-buttons .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    min-width: 150px;
+  }
+  
+  /* Improved Internship List */
+  .internship-list-container {
+    padding: 2rem 0;
+  }
+  
+  .internship-list-container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: var(--text);
+  }
+  
+  .internship-list {
+    padding: 1rem;
+  }
+  
+  .internship-card {
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .internship-card .actions {
+    margin-top: auto;
+    padding-top: 1rem;
+  }
+  
+  /* Empty State */
+  .empty-state {
+    text-align: center;
+    padding: 3rem;
+    background-color: var(--bg-white);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px var(--shadow);
+  }
+  
+  .empty-state p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Footer Improvements */
+  footer {
+    background-color: var(--primary-dark);
+    color: white;
+    padding: 1.5rem 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  footer .container {
+    text-align: center;
+  }
+  
+  footer p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+  }
+  
+  /* Auth Pages */
+  .auth-container {
+    max-width: 500px;
+    margin: 3rem auto;
+  }
+  
+  .auth-container form {
+    padding: 2.5rem;
+  }
+  
+  .auth-container h2 {
+    color: var(--primary-dark);
+  }
+  
+  .auth-links {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  
+  .auth-links a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+  
+  .auth-links a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Fix button spacing */
+  .btn + .btn {
+    margin-left: 0.5rem;
+  }
